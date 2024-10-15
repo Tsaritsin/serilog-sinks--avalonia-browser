@@ -1,1 +1,1 @@
-# serilog-sinks--avalonia-browser
+# serilog-sinks-avalonia-browser
