@@ -6,14 +6,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Browser" Version="11.1.4" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.10" />
+        <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)"/>
         <PackageReference Include="Serilog" Version="4.0.2" />
-        <PackageReference Include="Serilog.Sinks.BrowserConsole" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\source\Serilog.Sinks.Avalonia.Browser\Serilog.Sinks.Avalonia.Browser.csproj" />
-        <ProjectReference Include="..\AvaloniaApplication1\AvaloniaApplication1.csproj" />
+        <ProjectReference Include="..\AvaloniaApplication1\AvaloniaApplication1.csproj"/>
     </ItemGroup>
 </Project>

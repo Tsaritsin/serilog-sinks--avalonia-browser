@@ -4,42 +4,45 @@ using System.Runtime.Versioning;
 namespace Serilog.Sinks.Avalonia.Browser;
 
 [SupportedOSPlatform("browser")]
-internal static partial class BrowserLogger
+internal partial class BrowserLogger
 {
     [JSImport("globalThis.console.log")]
-    public static partial void Log([JSMarshalAs<JSType.Any>] object title,
-                                   [JSMarshalAs<JSType.Any>] object titleFormat,
-                                   [JSMarshalAs<JSType.Any>] object message,
-                                   [JSMarshalAs<JSType.Any>] object newLine);
+    internal static partial Task Log([JSMarshalAs<JSType.Array<JSType.Object>>] object[] args);
 
-    [JSImport("globalThis.console.debug")]
-    public static partial void Debug([JSMarshalAs<JSType.Any>] object title,
-                                     [JSMarshalAs<JSType.Any>] object titleFormat,
-                                     [JSMarshalAs<JSType.Any>] object message,
-                                     [JSMarshalAs<JSType.Any>] object newLine);
+    public void Write(object[] args)
+    {
+        Log(args);
+    }
 
-    [JSImport("globalThis.console.info")]
-    public static partial void Info([JSMarshalAs<JSType.Any>] object title,
-                                    [JSMarshalAs<JSType.Any>] object titleFormat,
-                                    [JSMarshalAs<JSType.Any>] object message,
-                                    [JSMarshalAs<JSType.Any>] object newLine);
+    [JSImport("globalThis.console.error")]
+    internal static partial Task LogError([JSMarshalAs<JSType.Array<JSType.Object>>] object[] args);
+
+    public void Error(object[] args)
+    {
+        LogError(args);
+    }
 
     [JSImport("globalThis.console.warn")]
-    public static partial void Warning([JSMarshalAs<JSType.Any>] object title,
-                                       [JSMarshalAs<JSType.Any>] object titleFormat,
-                                       [JSMarshalAs<JSType.Any>] object message,
-                                       [JSMarshalAs<JSType.Any>] object newLine);
+    internal static partial Task LogWarning([JSMarshalAs<JSType.Array<JSType.Object>>] object[] args);
 
-    [JSImport("globalThis.console.error")]
-    public static partial void Error([JSMarshalAs<JSType.Any>] object title,
-                                     [JSMarshalAs<JSType.Any>] object titleFormat,
-                                     [JSMarshalAs<JSType.Any>] object message,
-                                     [JSMarshalAs<JSType.Any>] object newLine);
+    public void Warning(object[] args)
+    {
+        LogWarning(args);
+    }
 
-    [JSImport("globalThis.console.error")]
-    public static partial void Error([JSMarshalAs<JSType.Any>] object title,
-                                     [JSMarshalAs<JSType.Any>] object titleFormat,
-                                     [JSMarshalAs<JSType.Any>] object message,
-                                     [JSMarshalAs<JSType.Any>] object newLine,
-                                     [JSMarshalAs<JSType.Any>] object exception);
+    [JSImport("globalThis.console.debug")]
+    internal static partial void LogDebug([JSMarshalAs<JSType.Array<JSType.Object>>] object[] args);
+
+    public void Debug(object[] args)
+    {
+        LogDebug(args);
+    }
+
+    [JSImport("globalThis.console.info")]
+    internal static partial Task LogInformation([JSMarshalAs<JSType.Array<JSType.Object>>] object[] args);
+
+    public void Information(object[] args)
+    {
+        LogInformation(args);
+    }
 }
