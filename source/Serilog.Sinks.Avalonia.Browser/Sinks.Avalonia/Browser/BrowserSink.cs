@@ -13,8 +13,6 @@ internal class BrowserSink(
     private readonly OutputTemplateRenderer
         _formatter = formatter ?? throw new ArgumentNullException(nameof(formatter));
 
-    private readonly BrowserLogger _browserLogger = new();
-
     public void Emit(LogEvent logEvent)
     {
         ArgumentNullException.ThrowIfNull(logEvent);
@@ -26,25 +24,29 @@ internal class BrowserSink(
             switch (logEvent.Level)
             {
                 case LogEventLevel.Verbose:
-                    _browserLogger.Debug(args);
-                    break;
                 case LogEventLevel.Debug:
-                    _browserLogger.Debug(args);
+                    BrowserLogger.Debug(args[0], args[1], args[2], args[3]);
                     break;
                 case LogEventLevel.Information:
-                    _browserLogger.Information(args);
+                    BrowserLogger.Info(args[0], args[1], args[2], args[3]);
                     break;
                 case LogEventLevel.Warning:
-                    _browserLogger.Warning(args);
+                    BrowserLogger.Warning(args[0], args[1], args[2], args[3]);
                     break;
                 case LogEventLevel.Error:
-                    _browserLogger.Error(args);
-                    break;
                 case LogEventLevel.Fatal:
-                    _browserLogger.Error(args);
+                    if (args.Length == 5)
+                    {
+                        BrowserLogger.Error(args[0], args[1], args[2], args[3], args[4]);
+                    }
+                    else
+                    {
+                        BrowserLogger.Error(args[0], args[1], args[2], args[3]);
+                    }
+
                     break;
                 default:
-                    _browserLogger.Write(args);
+                    BrowserLogger.Log(args[0], args[1], args[2], args[3]);
                     break;
             }
         }
