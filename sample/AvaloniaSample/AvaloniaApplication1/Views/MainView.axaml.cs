@@ -35,4 +35,10 @@ public partial class MainView : UserControl
     {
         Log.Error("ErrorButton clicked");
     }
+
+    private void HandleFatalButtonClick(object? sender,
+                                        RoutedEventArgs e)
+    {
+        Log.Fatal(new Exception("Exception trow"), "ErrorButton clicked");
+    }
 }

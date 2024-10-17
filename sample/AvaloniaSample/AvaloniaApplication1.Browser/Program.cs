@@ -3,11 +3,12 @@ using System.Runtime.Versioning;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Browser;
-using AvaloniaApplication1;
 using Serilog;
 using Serilog.Debugging;
 
 [assembly: SupportedOSPlatform("browser")]
+
+namespace AvaloniaApplication1.Browser;
 
 internal sealed partial class Program
 {
@@ -17,6 +18,7 @@ internal sealed partial class Program
 
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
+            .WriteTo.Browser()
             .CreateLogger();
 
         return BuildAvaloniaApp()
