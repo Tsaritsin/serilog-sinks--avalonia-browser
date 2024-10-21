@@ -16,6 +16,7 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+        cache: true
     - name: Restore dependencies
       run: dotnet restore ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
     - name: Build
@@ -47,7 +48,6 @@ jobs:
     - name: Pack to NuGet
       run: |
         dotnet pack ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
-        --artifacts-path ./source/Serilog.Sinks.Avalonia.Browser/bin/Release/net8.0/ 
         --no-restore 
         --no-build 
         --output nupkgs 
