@@ -15,7 +15,6 @@
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <TreatSpecificWarningsAsErrors />
-        <PackageReadmeFile>../../README.md</PackageReadmeFile>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <IncludeSymbols>true</IncludeSymbols>
     </PropertyGroup>
