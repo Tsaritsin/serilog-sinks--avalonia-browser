@@ -18,4 +18,4 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj --no-restore
