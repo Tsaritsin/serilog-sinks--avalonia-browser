@@ -1,5 +1,7 @@
 name: Code Changed 
 
+run-name: Code changed by @${{ github.actor }}
+
 on: push
 
 jobs:
@@ -14,6 +16,6 @@ jobs:
       with:
         dotnet-version: 8.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
     - name: Build
       run: dotnet build --no-restore
