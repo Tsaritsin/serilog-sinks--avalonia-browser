@@ -45,4 +45,10 @@ jobs:
       run: echo "FullSemVer (env.fullSemVer) ${{ env.fullSemVer }}"
 
     - name: Pack to NuGet
-      run: dotnet pack ./source/Serilog.Sinks.Avalonia.Browser/bin/Release/net8.0/ --no-build --output nupkgs -p:PackageVersion=${{ env.fullSemVer }}
+      run: |
+        dotnet pack ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
+        --artifacts-path ./source/Serilog.Sinks.Avalonia.Browser/bin/Release/net8.0/ 
+        --no-restore 
+        --no-build 
+        --output nupkgs 
+        -p:PackageVersion=${{ env.fullSemVer }}
