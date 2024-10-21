@@ -21,6 +21,8 @@ internal sealed partial class Program
             .WriteTo.Browser()
             .CreateLogger();
 
+        Log.Information("Hello, browser!");
+
         return BuildAvaloniaApp()
             .WithInterFont()
             .StartBrowserAppAsync("out");
