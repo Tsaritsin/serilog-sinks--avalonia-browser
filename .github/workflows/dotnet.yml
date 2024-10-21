@@ -6,6 +6,7 @@ on: push
 
 jobs:
   build:
+    name: Building
     runs-on: ubuntu-latest
 
     steps:
