@@ -17,6 +17,7 @@
         <TreatSpecificWarningsAsErrors />
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <IncludeSymbols>true</IncludeSymbols>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -25,6 +26,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="js\consoleMethodApply.js" />
+        <None Include="..\..\README.md" Pack="true" Visible="false" PackagePath="" />
     </ItemGroup>
 </Project>
