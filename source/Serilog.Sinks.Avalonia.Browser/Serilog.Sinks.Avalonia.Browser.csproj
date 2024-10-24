@@ -10,7 +10,7 @@
         <Description>Writes Serilog events to the browser console</Description>
         <Authors>Tsaritsin</Authors>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        <PackageTags>serilog;avalonia</PackageTags>
+        <PackageTags>serilog;avalonia;wasm</PackageTags>
         <PackageProjectUrl>https://github.com/Tsaritsin/serilog-sinks-avalonia-browser</PackageProjectUrl>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
