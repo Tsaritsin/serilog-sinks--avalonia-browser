@@ -21,8 +21,8 @@ jobs:
         dotnet restore ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
     - name: Build
       run: |
-        dotnet build ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
-        --no-restore
+        dotnet build ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj `
+        --no-restore `
         --configuration Release
 
   pack:
@@ -50,8 +50,8 @@ jobs:
 
     - name: Pack to NuGet
       run: |
-        dotnet pack ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
-        --no-restore 
-        --no-build 
-        --output nupkgs 
+        dotnet pack ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj `
+        --no-restore `
+        --no-build `
+        --output nupkgs ` 
         -p:PackageVersion=${{ env.fullSemVer }}
