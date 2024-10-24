@@ -19,9 +19,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
     - name: Build
-      run: dotnet build ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj `
-        --no-restore `
-        --configuration Release
+      run: dotnet build ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj --no-restore --configuration Release
 
   pack:
     name: Publishing
@@ -47,8 +45,4 @@ jobs:
       run: echo "FullSemVer (env.fullSemVer) ${{ env.fullSemVer }}"
 
     - name: Pack to NuGet
-      run: dotnet pack ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj `
-        --no-restore `
-        --no-build `
-        --output nupkgs ` 
-        -p:PackageVersion=${{ env.fullSemVer }}
+      run: dotnet pack ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj --no-restore --no-build --output nupkgs -p:PackageVersion=${{ env.fullSemVer }}
