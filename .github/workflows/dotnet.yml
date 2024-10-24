@@ -18,12 +18,10 @@ jobs:
         dotnet-version: 8.0.x
     - name: Restore dependencies
       run: |
-        dotnet restore
-        ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
+        dotnet restore ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
     - name: Build
       run: |
-        dotnet build
-        ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
+        dotnet build ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
         --no-restore
         --configuration Release
 
@@ -52,8 +50,7 @@ jobs:
 
     - name: Pack to NuGet
       run: |
-        dotnet pack
-        ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
+        dotnet pack ./source/Serilog.Sinks.Avalonia.Browser/Serilog.Sinks.Avalonia.Browser.csproj
         --no-restore 
         --no-build 
         --output nupkgs 
