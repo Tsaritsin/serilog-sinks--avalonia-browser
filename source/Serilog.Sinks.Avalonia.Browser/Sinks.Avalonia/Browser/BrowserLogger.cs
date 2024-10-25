@@ -3,6 +3,9 @@ using System.Runtime.Versioning;
 
 namespace Serilog.Sinks.Avalonia.Browser;
 
+/// <summary>
+/// Provides methods to log messages to the browser's console.
+/// </summary>
 [SupportedOSPlatform("browser")]
 internal static partial class BrowserLogger
 {
