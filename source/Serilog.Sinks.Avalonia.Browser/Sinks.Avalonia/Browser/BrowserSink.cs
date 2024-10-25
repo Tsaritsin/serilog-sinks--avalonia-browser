@@ -6,6 +6,13 @@ using Serilog.Sinks.Avalonia.Browser.Output;
 
 namespace Serilog.Sinks.Avalonia.Browser;
 
+/// <summary>
+/// Provides a sink for Serilog that outputs log events to the browser console.
+/// </summary>
+/// <remarks>
+/// This class formats and writes log events to the browser's debugging console using an
+/// <see cref="OutputTemplateRenderer"/> to control the appearance of the messages.
+/// </remarks>
 [SupportedOSPlatform("browser")]
 internal class BrowserSink(
     OutputTemplateRenderer formatter) : ILogEventSink
