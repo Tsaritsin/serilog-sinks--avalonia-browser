@@ -2,7 +2,10 @@ name: Code Changed
 
 run-name: Code changed by @${{ github.actor }}
 
-on: push
+on:
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
