@@ -11,7 +11,7 @@ It almost the same like package Serilog.Sinks.BrowserConsole but use [JSImport] 
             .WriteTo.Browser()
             .CreateLogger();
 ```
-![image](https://github.com/user-attachments/assets/1f7831df-ffde-4cc2-ab3f-9d0522f772aa)
+![image](https://raw.githubusercontent.com/{github_user_name}/{repo_name}/{branch}/.github/images/readme_1.png)
 
 ![image](https://github.com/user-attachments/assets/8a55dc68-c4e5-4f01-9628-6ee54de74a5e)
 
