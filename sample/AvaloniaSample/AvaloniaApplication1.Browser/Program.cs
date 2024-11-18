@@ -19,17 +19,14 @@ internal sealed partial class Program
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Debug()
             .WriteTo.Browser()
-            .CreateLogger();
+            .CreateLogger()
+            .ForContext<Program>();
 
         Log.Information("Hello, browser!");
 
-        return BuildAvaloniaApp()
+        return AppBuilder
+            .Configure<App>()
             .WithInterFont()
             .StartBrowserAppAsync("out");
-    }
-
-    public static AppBuilder BuildAvaloniaApp()
-    {
-        return AppBuilder.Configure<App>();
     }
 }

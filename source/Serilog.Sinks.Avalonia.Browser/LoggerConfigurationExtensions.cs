@@ -2,8 +2,8 @@
 using Serilog.Configuration;
 using Serilog.Core;
 using Serilog.Events;
+using Serilog.Formatting.Display;
 using Serilog.Sinks.Avalonia.Browser;
-using Serilog.Sinks.Avalonia.Browser.Output;
 
 [assembly: SupportedOSPlatform("browser")]
 
@@ -14,10 +14,7 @@ namespace Serilog;
 /// </summary>
 public static class LoggerConfigurationExtensions
 {
-    private const string SerilogToken =
-        "%cserilog{_}color:white;background:#8c7574;border-radius:3px;padding:1px 2px;font-weight:600;";
-
-    private const string DefaultConsoleOutputTemplate = SerilogToken + "{Message}{NewLine}{Exception}";
+    private const string DefaultConsoleOutputTemplate = "{Message:lj}{NewLine}{SourceContext}{NewLine}{Exception}";
 
     /// <summary>
     ///     Writes log events to the browser console.
@@ -29,7 +26,7 @@ public static class LoggerConfigurationExtensions
     /// </param>
     /// <param name="outputTemplate">
     ///     A message template describing the format used to write to the sink.
-    ///     The default is <code>"[{Timestamp:HH:mm:ss} {Level:u3}] {Message:lj}{NewLine}{Exception}"</code>.
+    ///     The default is <code>"{Message:lj}{NewLine}{SourceContext}{NewLine}{Exception}"</code>.
     /// </param>
     /// <param name="formatProvider">Supplies culture-specific formatting information, or null.</param>
     /// <param name="levelSwitch">
@@ -46,7 +43,7 @@ public static class LoggerConfigurationExtensions
     {
         ArgumentNullException.ThrowIfNull(sinkConfiguration);
 
-        var formatter = new OutputTemplateRenderer(outputTemplate, formatProvider);
+        var formatter = new MessageTemplateTextFormatter(outputTemplate, formatProvider);
 
         return sinkConfiguration.Sink(new BrowserSink(formatter), restrictedToMinimumLevel, levelSwitch);
     }
