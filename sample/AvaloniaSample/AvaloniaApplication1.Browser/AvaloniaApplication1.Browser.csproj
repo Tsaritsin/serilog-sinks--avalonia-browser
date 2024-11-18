@@ -3,13 +3,13 @@
         <TargetFramework>net8.0-browser</TargetFramework>
         <OutputType>Exe</OutputType>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <WasmBuildNative>true</WasmBuildNative>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.10" />
         <PackageReference Include="Serilog" Version="4.0.2" />
-        <PackageReference Include="Serilog.Sinks.BrowserConsole" Version="8.0.0" />
     </ItemGroup>
 
     <ItemGroup>

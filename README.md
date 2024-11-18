@@ -1,6 +1,6 @@
 # serilog-sinks-avalonia-browser
 
-It almost the same like package Serilog.Sinks.BrowserConsole but use [JSImport] instead IJSRuntime (because it working without Blazor and aditional registrations).
+It almost the same package Serilog.Sinks.BrowserConsole but use [JSImport] instead IJSRuntime (because it's working without Blazor and additional registrations).
 
 ```csharp
 

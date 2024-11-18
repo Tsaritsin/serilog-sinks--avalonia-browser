@@ -7,6 +7,8 @@ namespace AvaloniaApplication1.Views;
 
 public partial class MainView : UserControl
 {
+    private readonly ILogger _logger = Log.ForContext<MainView>();
+
     public MainView()
     {
         InitializeComponent();
@@ -15,30 +17,43 @@ public partial class MainView : UserControl
     private void HandleDebugButtonClick(object? sender,
                                         RoutedEventArgs e)
     {
-        Log.Debug("DebugButton clicked");
+        _logger.Debug("DebugButton clicked");
     }
 
     private void HandleInfoButtonClick(object? sender,
                                        RoutedEventArgs e)
     {
-        Log.Information("InformationButton clicked");
+        _logger.Information("InformationButton clicked");
     }
 
     private void HandleWarningButtonClick(object? sender,
                                           RoutedEventArgs e)
     {
-        Log.Warning("WarningButton clicked");
+        _logger.Warning("WarningButton clicked");
     }
 
     private void HandleErrorButtonClick(object? sender,
                                         RoutedEventArgs e)
     {
-        Log.Error("ErrorButton clicked");
+        _logger.Error("ErrorButton clicked");
     }
 
     private void HandleFatalButtonClick(object? sender,
                                         RoutedEventArgs e)
     {
-        Log.Fatal(new Exception("Exception trow"), "ErrorButton clicked");
+        _logger.Fatal(new Exception("Exception trow"), "FatalButton clicked");
+    }
+
+    private void HandleDestructButtonClick(object? sender,
+                                           RoutedEventArgs e)
+    {
+        var testRecord = new MyRecord("Test", 10);
+
+        //_logger.Information("DestructButton clicked {Age}", testRecord.Age);
+        _logger.Information("DestructButton clicked {@testRecord}", testRecord);
     }
 }
+
+public record MyRecord(
+    string Name,
+    int Age);

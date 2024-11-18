@@ -33,5 +33,9 @@
               Width="150"
               Height="30"
               Click="HandleFatalButtonClick"/>
+      <Button Content="Destruct"
+              Width="150"
+              Height="30"
+              Click="HandleDestructButtonClick"/>
   </StackPanel>
 </UserControl>
